@@ -37,9 +37,9 @@
 <!-- Menu para mobile -->
 <div id="mobile-menu" class="md:hidden hidden" style="background-color: #E2D3BC;">
   <ul class="flex flex-col space-y-4 px-6 py-4 text-lg font-medium">
-      <li><a href="#about" class="hover:text-green-700 transition-colors duration-300">Sobre Mim</a></li>
-      <li><a href="#modalidades" class="hover:text-green-700 transition-colors duration-300">Modalidades</a></li>
-      <li><a href="#agendar" class="hover:text-green-700 transition-colors duration-300">Agendar Consulta</a></li>
+      <li><a href="#about" class="hover:text-green-700 transition-colors duration-300" onclick="closeMobileMenu()" >Sobre Mim</a></li>
+      <li><a href="#modalidades" class="hover:text-green-700 transition-colors duration-300" onclick="closeMobileMenu()" >Modalidades</a></li>
+      <li><a href="#agendar" class="hover:text-green-700 transition-colors duration-300" onclick="closeMobileMenu()" >Agendar Consulta</a></li>
   </ul>
 </div>
 
@@ -67,9 +67,18 @@
   <script>
     // Função para alternar a visibilidade do menu
     function toggleMenu() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
     }
+
+    // Fechar o menu ao clicar fora
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobile-menu');
+      const menuButton = document.querySelector('.md:hidden button');
+      if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
   </script>
 
 
@@ -159,25 +168,25 @@
 
 <!-- Scripts para abrir e fechar os modais -->
 <script>// Função para abrir o modal
-  function openModal(modalId) {
+    // Função para abrir o modal
+    function openModal(modalId) {
       document.getElementById(modalId).classList.remove('hidden');
-  }
-  
-  // Função para fechar o modal
-  function closeModal(modalId) {
+    }
+
+    // Função para fechar o modal
+    function closeModal(modalId) {
       document.getElementById(modalId).classList.add('hidden');
-  }
-  
-  // Fecha o modal se o usuário clicar fora da área do conteúdo do modal
-  window.addEventListener('click', function(e) {
+    }
+
+    // Fecha o modal se o usuário clicar fora da área do conteúdo do modal
+    window.addEventListener('click', function(e) {
       const modals = document.querySelectorAll('.fixed');
       modals.forEach(modal => {
-          // Verifica se o clique foi fora do conteúdo do modal (elemento com classe .bg-white)
-          if (e.target === modal && !modal.querySelector('.bg-white').contains(e.target)) {
-              modal.classList.add('hidden');
-          }
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
       });
-  });
+    });
   
 </script>
 
