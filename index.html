@@ -158,26 +158,27 @@
 </section>
 
 <!-- Scripts para abrir e fechar os modais -->
-<script>
-  // Função para abrir o modal
+<script>// Função para abrir o modal
   function openModal(modalId) {
       document.getElementById(modalId).classList.remove('hidden');
   }
-
+  
   // Função para fechar o modal
   function closeModal(modalId) {
       document.getElementById(modalId).classList.add('hidden');
   }
-
+  
   // Fecha o modal se o usuário clicar fora da área do conteúdo do modal
   window.addEventListener('click', function(e) {
       const modals = document.querySelectorAll('.fixed');
       modals.forEach(modal => {
-          if (e.target === modal) {
+          // Verifica se o clique foi fora do conteúdo do modal (elemento com classe .bg-white)
+          if (e.target === modal && !modal.querySelector('.bg-white').contains(e.target)) {
               modal.classList.add('hidden');
           }
       });
   });
+  
 </script>
 
 
