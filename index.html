@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alysson Figueiredo - Fisioterapeuta</title>
+  <link rel="stylesheet" href="https://maryrl.github.io/fisio-alysson/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Certifique-se de que o caminho está correto -->
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Menu -->
+<!-- Menu -->
+<header class="bg-[#E2D3BC] text-white sticky top-0 shadow-md" style="background-color: #E2D3BC;">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center">
+          <img src="logoalysson.png" alt="Logo" class="h-16 mr-2">
+      </a>
+      <!-- Menu para telas grandes -->
+      <nav class="hidden md:flex">
+          <ul class="flex space-x-6">
+              <li><a href="#about" class="hover:text-green-700">Sobre Mim</a></li>
+              <li><a href="#modalidades" class="hover:text-green-700">Modalidades</a></li>
+              <li><a href="#agendar" class="hover:text-green-700">Agendar Consulta</a></li>
+          </ul>
+      </nav>
+      <!-- Ícone de menu para dispositivos móveis -->
+      <div class="md:hidden">
+          <button class="text-white" onclick="toggleMenu()">
+              <i class="fas fa-bars fa-lg"></i>
+          </button>
+      </div>
+  </div>
+</header>
+
+<!-- Menu para mobile -->
+<div id="mobile-menu" class="md:hidden hidden" style="background-color: #E2D3BC;">
+  <ul class="flex flex-col space-y-4 px-6 py-4 text-lg font-medium">
+      <li><a href="#about" class="hover:text-green-700 transition-colors duration-300">Sobre Mim</a></li>
+      <li><a href="#modalidades" class="hover:text-green-700 transition-colors duration-300">Modalidades</a></li>
+      <li><a href="#agendar" class="hover:text-green-700 transition-colors duration-300">Agendar Consulta</a></li>
+  </ul>
+</div>
+
+  <!-- Resto do conteúdo da página (seções) -->
+  <header class="capa-header">
+    <div class="capa-descricao">
+        <h2 class="capa-titulo">O que me motiva?</h2>
+        <p>
+            O que mais me motiva no meu trabalho é o cuidado individualizado e humanizado. Entendo que cada paciente é único, e é com empatia, paciência e escuta ativa que consigo desenvolver estratégias que atendam às suas necessidades específicas. Meu foco é não só tratar a lesão ou a dor, mas também promover uma recuperação funcional que proporcione bem-estar a longo prazo, com segurança e qualidade.
+        </p>
+    </div>
+  </header>
+
+  <section id="about" class="bg-white py-12 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+      <img class="w-56 h-56 rounded-full shadow-xl object-cover mb-8 lg:mb-0 lg:mr-16" src="perfilalysson.jpg" alt="Foto do Fisioterapeuta">
+      <div class="text-center lg:text-left">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Sobre Mim</h2>
+        <p class="text-lg text-gray-600 mb-6">Olá, meu nome é Alysson Figueiredo e sou fisioterapeuta formado com especialização em Traumato-Ortopedia. Ao longo da minha carreira, estou desenvolvendo um compromisso profundo em proporcionar reabilitação eficaz e personalizada, com foco na recuperação do movimento, redução da dor e melhoria da qualidade de vida dos meus pacientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts para abrir e fechar o menu mobile -->
+  <script>
+    // Função para alternar a visibilidade do menu
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+  </script>
+
+
+ <!-- Seção Modalidades -->
+ <section id="modalidades" class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-extrabold text-gray-900 mb-8">O que atendo?</h2>
+      
+      <!-- Botões para abrir o modal -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalTraumato')">
+              Traumato Ortopedia
+          </button>
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalIdoso')">
+              Saúde do Idoso
+          </button>
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalManual')">
+              Recursos Terapêuticos Manuais
+          </button>
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalNeuro')">
+              Neurofuncional
+          </button>
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalPreventiva')">
+              Preventiva
+          </button>
+          <button class="bg-[#708877] text-white p-4 rounded-lg shadow-lg hover:bg-[#5a6f58]" onclick="openModal('modalTerapias')">
+              Terapias Complementares
+          </button>
+      </div>
+  </div>
+
+  <!-- Modals -->
+  <!-- Modal 1: Traumato Ortopedia -->
+  <div id="modalTraumato" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Traumato Ortopedia</h3>
+          <p>Atuo no tratamento e reabilitação de pacientes com lesões musculoesqueléticas, como fraturas, entorses, luxações, doenças degenerativas e pós-cirúrgico. Meu papel é melhorar a função, reduzir a dor, restaurar a mobilidade e prevenir complicações, utilizando técnicas como exercícios terapêuticos, alongamentos, massoterapia, eletroterapia e orientações posturais.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalTraumato')">Fechar</button>
+      </div>
+  </div>
+
+  <!-- Modal 2: Saúde do Idoso -->
+  <div id="modalIdoso" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Saúde do Idoso</h3>
+          <p>Possuo papel fundamental na promoção da qualidade de vida, prevenção de quedas, manutenção da mobilidade e autonomia, além disso, ajudo no tratamento de doenças comuns da idade, como osteoartrite, osteoporose e doenças cardiovasculares. Realizo avaliações individuais para identificar limitações e desenvolvo programas de reabilitação que incluem exercícios de fortalecimento muscular, alongamentos, treino de equilíbrio, coordenação e postura.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalIdoso')">Fechar</button>
+      </div>
+  </div>
+
+  <!-- Modal 3: Recursos Terapêuticos Manuais -->
+  <div id="modalManual" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Recursos Terapêuticos Manuais</h3>
+          <p>Utilizo recursos terapêuticos manuais aplicando técnicas de mobilização, manipulação e massagem para tratar disfunções musculoesqueléticas e aliviar dores. Essas abordagens visam melhorar a mobilidade das articulações, reduzir tensões musculares, melhorar a circulação sanguínea e promover o relaxamento. As técnicas incluem a liberação miofascial, mobilizações articulares, alongamentos passivos e manipulações específicas, dependendo das necessidades do paciente.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalManual')">Fechar</button>
+      </div>
+  </div>
+
+  <!-- Modal 4: Neurofuncional -->
+  <div id="modalNeuro" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Neurofuncional</h3>
+          <p>Atuo no tratamento de distúrbios do sistema nervoso, como em pacientes com sequelas de Acidente Vascular Cerebral (AVC), lesões medulares, doenças neurológicas (Parkinson, esclerose múltipla) e paralisias. Meu objetivo é promover a reabilitação motora, melhorar a mobilidade, a coordenação e o equilíbrio, além de prevenir complicações.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalNeuro')">Fechar</button>
+      </div>
+  </div>
+
+  <!-- Modal 5: Preventiva -->
+  <div id="modalPreventiva" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Preventiva</h3>
+          <p>Atuo na prevenção de lesões e doenças musculoesqueléticas por meio de orientações sobre postura, ergonomia, atividades físicas e alongamentos. Realizo programas de fortalecimento muscular, treino de flexibilidade e equilíbrio, visando melhorar a saúde global, prevenindo sobrecargas articulares e musculares, e reduzindo o risco de lesões.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalPreventiva')">Fechar</button>
+      </div>
+  </div>
+
+  <!-- Modal 6: Terapias Complementares -->
+  <div id="modalTerapias" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-6 rounded-lg max-w-lg w-full">
+          <h3 class="text-xl font-semibold mb-4 text-[#708877]">Terapias Complementares</h3>
+          <p>Utilizo abordagens como terapia manuais, dry needling e técnicas de relaxamento para tratar dores crônicas, estresse, tensões musculares e outras condições. Essas terapias visam potencializar os resultados do tratamento convencional, promovendo o equilíbrio do corpo, alívio da dor e recuperação funcional.</p>
+          <button class="mt-4 bg-[#708877] text-white p-2 rounded-md hover:bg-[#5a6f58]" onclick="closeModal('modalTerapias')">Fechar</button>
+      </div>
+  </div>
+</section>
+
+<!-- Scripts para abrir e fechar os modais -->
+<script>
+  // Função para abrir o modal
+  function openModal(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+  }
+
+  // Função para fechar o modal
+  function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+  }
+
+  // Fecha o modal se o usuário clicar fora da área do conteúdo do modal
+  window.addEventListener('click', function(e) {
+      const modals = document.querySelectorAll('.fixed');
+      modals.forEach(modal => {
+          if (e.target === modal) {
+              modal.classList.add('hidden');
+          }
+      });
+  });
+</script>
+
+
+<section id="portfolio" class="portfolio">
+  <div class="gallery">
+      <img src="modalidade1.jpg" alt="modalidade">
+      <img src="modalidade2.jpg" alt="modalidade2">
+      <img src="modalidade3.jpg" alt="modalidade3">
+      <img src="modalidade4.jpg" alt="modalidade4">
+  </div>
+</section>
+
+<section id="agendar" class="bg-white py-12 lg:py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-8">Agendar Consulta</h2>
+    <form id="form-consulta" class="space-y-6">
+      <!-- Campo de Nome -->
+      <input type="text" class="w-full p-3 border border-gray-300 rounded-md" id="nome" placeholder="Nome" required>
+
+      <!-- Campo de Modalidade -->
+      <select class="w-full p-3 border border-gray-300 rounded-md" id="modalidade" required>
+        <option value="" disabled selected>Escolha a Modalidade</option>
+        <option value="Traumato Ortopedia">Traumato Ortopedia</option>
+        <option value="Saúde do Idoso">Saúde do Idoso</option>
+        <option value="Recursos Terapêuticos Manuais">Recursos Terapêuticos Manuais</option>
+        <option value="Neurofuncional">Neurofuncional</option>
+        <option value="Preventiva">Preventiva</option>
+        <option value="Terapias Complementares">Terapias Complementares</option>
+      </select>
+
+      <!-- Campo de Data -->
+      <input type="date" class="w-full p-3 border border-gray-300 rounded-md" id="data" placeholder="Escolha a Data" required>
+
+      <!-- Botão de Agendar Consulta -->
+      <button type="submit" class="w-full py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-md shadow-md transform hover:scale-105 transition-all duration-300">
+        Agendar Consulta
+      </button>
+    </form>
+  </div>
+</section>
+
+
+  <script src="index.js"></script>
+  
+  <footer class="bg-custom-footer text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+      <p class="text-xl font-semibold mb-4">Entre em Contato</p>
+      <div class="flex space-x-6 mb-6">
+        <a href="alyssonfigfisio@gmail.com" class="text-white hover:text-green-300">
+          <i class="fas fa-envelope fa-2x"></i>
+        </a>
+        <a href="https://www.instagram.com/dr.alyssonfig/" class="text-white hover:text-green-300" target="_blank">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://wa.me/5588981944109" class="text-white hover:text-green-300" >
+          <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+        <a href="tel:+5588981944109" class="text-white hover:text-green-300">
+          <i class="fas fa-phone-alt fa-2x"></i>
+        </a>
+      </div>
+      <p class="text-sm"> &copy; 2025 - Desenvolvido por Maria Rodrigues - <br> Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("imagem-modalidade");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex - 1].style.display = "block";  
+      setTimeout(showSlides, 3000); // Muda a imagem a cada 3 segundos
+    }
+
+    function moveSlide(n) {
+      slideIndex += n;
+      let slides = document.getElementsByClassName("imagem-modalidade");
+      if (slideIndex > slides .length) {slideIndex = 1}
+      if (slideIndex < 1) {slideIndex = slides.length}
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slides[slideIndex - 1].style.display = "block";  
+    }
+  </script>
+
+<script>
+  function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+  }
+</script>
+</body>
+</html>

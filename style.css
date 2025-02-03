@@ -1,0 +1,291 @@
+/* Variáveis de cores */
+:root {
+    --cor-principal: #708877;
+    --cor-secundaria: #E2D3BC;
+}
+
+/* Reset e estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cor-secundaria);
+}
+
+
+
+/* Intercalando fundo nas seções */
+section:nth-child(even) {
+    background-color: var(--cor-secundaria);
+}
+
+section:nth-child(odd) {
+    background-color: var(--cor-principal);
+
+}
+
+/* Seção Modalidades - Distribui em pares */
+#modalidades .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#modalidades .bg-white {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Carrossel */
+.carrossel {
+    position: relative;
+    max-width: 100%;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.imagem-modalidade {
+    min-width: 80%; /* Reduz tamanho da imagem */
+    height: 300px; /* Define altura fixa */
+    transition: opacity 0.5s ease;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Botões do carrossel */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--cor-principal);
+    border: 2px solid var(--cor-principal);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: var(--cor-principal);
+    color: #fff;
+    border-color: var(--cor-principal);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #modalidades .grid {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+    }
+
+    .imagem-modalidade {
+        min-width: 100%;
+        height: 200px;
+    }
+
+    .prev, .next {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prev, .next {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .imagem-modalidade {
+        height: 150px;
+    }
+}
+
+/* Estilização da Seção de Capa */
+.capa-header {
+    background-color: #708877; /* Cor de fundo */
+    padding: 20px; /* Espaçamento interno para melhor visualização */
+    display: flex; /* Organiza o conteúdo lado a lado */
+    align-items: center; /* Alinha verticalmente */
+    gap: 20px; /* Espaço entre imagem e descrição */
+}
+
+.capa {
+    max-width: 300px; /* Reduz tamanho máximo da imagem */
+    height: auto; /* Mantém proporção */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    top: auto;
+    
+}
+
+.capa-descricao {
+    color: #ffffff; /* Cor do texto para contraste */
+    max-width: 600px; /* Largura máxima do conteúdo */
+    text-align: center;
+}
+
+.capa-titulo {
+    font-size: 2rem; /* Tamanho do título */
+    font-weight: bold; /* Deixa o título em negrito */
+    margin-bottom: 10px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .capa-header {
+        flex-direction: column; /* Empilha imagem e texto */
+        text-align: center;
+    }
+
+    .capa-header img.capa {
+        width: 80%;
+        text-align: right;
+        top:auto;
+        position: inherit;
+    
+    }
+}
+
+
+.imagem-modalidade {
+    width: 80%; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+    display: none; /* Inicialmente oculta as imagens */
+}
+
+/* Seção Sobre - Ajuste de cor de fundo */
+#about {
+    background-color: #E2D3BC; /* Cor de fundo personalizada */
+}
+
+/* Estilização da Seção Modalidades */
+#modalidades {
+    background-color: #708877; /* Cor de fundo principal */
+    padding: 3rem 1.5rem; /* Espaçamento interno */
+    color: #ffffff; /* Cor do texto para contraste */
+}
+
+#modalidades h2 {
+    color: #ffffff; /* Título principal em branco */
+    font-size: 2.5rem; /* Tamanho do título */
+    margin-bottom: 2rem; /* Espaçamento abaixo do título */
+}
+
+#modalidades .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão para telas pequenas */
+    gap: 1.5rem; /* Espaço entre os itens */
+}
+
+@media (min-width: 768px) {
+    #modalidades .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias e maiores */
+    }
+}
+
+#modalidades .bg-white {
+    background-color: #ffffff; /* Cor de fundo do card */
+    color: #333333; /* Cor do texto dentro dos cards */
+    padding: 1.5rem;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: left; /* Alinhamento do texto */
+}
+
+#modalidades h3 {
+    font-size: 1.5rem; /* Tamanho dos títulos dos cards */
+    color: #333333; /* Cor do título */
+    margin-bottom: 0.5rem;
+}
+
+#modalidades p {
+    font-size: 1rem; /* Tamanho do texto */
+    color: #555555; /* Cor do texto */
+    line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+
+.carrossel-container {
+    background-color: #708877; /* Cor de fundo do carrossel */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.imagem-modalidade {
+    width: 60%; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem */
+    display: none; /* Inicialmente oculta as imagens */
+}
+
+button.prev, button.next {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo dos botões */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin: 10px; /* Espaçamento entre os botões */
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(255, 255, 255, 1); /* Cor ao passar o mouse */
+}
+
+.custom-button {
+    background-color: #708877; /* Cor de fundo do botão */
+}
+
+.custom-button:hover {
+    background-color: #5a6e5a; /* Cor ao passar o mouse (um tom mais escuro) */
+}
+
+.bg-custom-footer {
+    background-color: #708877; /* Cor de fundo do footer */
+}
+
+.portfolio {
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
